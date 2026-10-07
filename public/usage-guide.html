@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EPAC 智能工作台 | 一页使用说明</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
+
+      :root {
+        color: #21323a;
+        background: #f2f5f3;
+        font-family: "DM Sans", "Noto Sans SC", Arial, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      .sheet { width: min(1200px, calc(100vw - 40px)); margin: 24px auto; background: #fff; box-shadow: 0 14px 42px rgba(24, 50, 57, .13); }
+      .hero { min-height: 245px; background: #11323d; color: #fff; padding: 38px 48px 34px; position: relative; overflow: hidden; }
+      .hero::after { content: ""; position: absolute; width: 360px; height: 360px; border: 40px solid rgba(108, 169, 151, .12); border-radius: 50%; right: -120px; top: -180px; }
+      .brand { display: flex; align-items: center; gap: 10px; color: #bfd1d6; font-size: 13px; position: relative; z-index: 1; }
+      .brand-logo-wrap { width: 102px; height: 38px; background: #fff; display: grid; place-items: center; border-radius: 4px; padding: 5px 7px; }
+      .brand-logo { display: block; width: 100%; height: auto; }
+      .hero h1 { margin: 29px 0 8px; font-size: clamp(31px, 4vw, 46px); line-height: 1.1; letter-spacing: 0; position: relative; z-index: 1; }
+      .hero p { margin: 0; color: #c5d6d8; font-size: 15px; position: relative; z-index: 1; }
+      .hero .tag { position: absolute; right: 48px; bottom: 36px; z-index: 1; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(190, 220, 211, .38); padding: 9px 12px; font-size: 11px; color: #b9ded2; }
+      .tag i { width: 7px; height: 7px; border-radius: 50%; background: #60c998; box-shadow: 0 0 0 3px rgba(96, 201, 152, .15); }
+      main { padding: 33px 48px 43px; }
+      .lead { display: grid; grid-template-columns: 1.12fr .88fr; gap: 25px; align-items: stretch; padding-bottom: 28px; border-bottom: 1px solid #e5ece9; }
+      .eyebrow { color: #72848b; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; margin: 0 0 8px; }
+      h2 { font-size: 21px; margin: 0 0 9px; color: #263841; letter-spacing: 0; }
+      .lead > div > p:last-child { margin: 0; line-height: 1.8; color: #6f7f85; font-size: 13px; }
+      .outcome { background: #eef6f2; border-left: 4px solid #3d8b70; padding: 18px 19px; }
+      .outcome strong { display: block; color: #2f725e; font-size: 13px; margin-bottom: 6px; }
+      .outcome span { display: block; color: #658078; font-size: 12px; line-height: 1.65; }
+      .section-title { display: flex; align-items: center; justify-content: space-between; margin: 30px 0 14px; }
+      .section-title h2 { margin: 0; font-size: 19px; }
+      .section-title span { color: #809096; font-size: 11px; }
+      .capability-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .capability { border: 1px solid #e2e9e6; min-height: 169px; padding: 16px; position: relative; }
+      .capability .icon { width: 30px; height: 30px; border-radius: 5px; display: grid; place-items: center; font-weight: 700; font-size: 12px; margin-bottom: 14px; }
+      .icon.owner { color: #a55239; background: #fae7e0; }.icon.sales { color: #2c7965; background: #e3f2ec; }.icon.order { color: #496c95; background: #e7eff7; }.icon.buy { color: #a67531; background: #fbefd9; }.icon.admin { color: #8a5a85; background: #f4e8f2; }.icon.ai { color: #2f6575; background: #e2f0f3; }
+      .capability h3 { color: #34464e; font-size: 14px; margin: 0 0 7px; }.capability p { color: #76858a; font-size: 11px; line-height: 1.65; margin: 0; }
+      .focus { background: #f5f8f7; margin: 30px -48px 0; padding: 28px 48px; }
+      .focus h2 { font-size: 19px; }
+      .focus-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 14px; }
+      .focus-item { background: #fff; padding: 14px; border-top: 3px solid #d97554; }
+      .focus-item:nth-child(2) { border-color: #d2a052; }.focus-item:nth-child(3) { border-color: #468b74; }
+      .focus-item b { color: #7d6250; display: block; font-size: 10px; letter-spacing: .9px; margin-bottom: 8px; }.focus-item strong { display: block; color: #35464e; font-size: 13px; margin-bottom: 5px; }.focus-item p { color: #748289; font-size: 11px; line-height: 1.55; margin: 0; }
+      .flow-title { margin: 30px 0 14px; }.flow-title h2 { font-size: 19px; }.flow-title p { color: #78878c; font-size: 12px; margin: 5px 0 0; }
+      .flow { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; align-items: center; }
+      .flow-step { min-height: 79px; padding: 10px; background: #f1f6f4; display: flex; flex-direction: column; justify-content: center; position: relative; }
+      .flow-step:not(:last-child)::after { content: "›"; color: #90a49f; position: absolute; right: -7px; top: 26px; z-index: 1; font-size: 22px; }
+      .flow-step b { color: #386d61; font-size: 11px; }.flow-step span { color: #7d8f92; font-size: 10px; margin-top: 4px; }.flow-step.risk { background: #fff3e7; }.flow-step.risk b { color: #a76a39; }
+      .assistant { background: #153a46; color: white; padding: 25px 28px; display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px; margin-top: 30px; }
+      .assistant .eyebrow { color: #94b8b5; }.assistant h2 { color: #fff; font-size: 20px; }.assistant p { color: #bed1d2; font-size: 12px; line-height: 1.7; margin: 0; }
+      .questions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-content: center; }.questions div { border: 1px solid rgba(203, 232, 222, .23); color: #d8e7e5; padding: 10px; font-size: 11px; line-height: 1.4; }
+      .demo { padding-top: 30px; }.demo h2 { font-size: 19px; }.demo-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 14px; }.demo-step { padding: 0 17px; border-right: 1px solid #e1e9e5; min-height: 86px; }.demo-step:first-child { padding-left: 0; }.demo-step:last-child { border: 0; }.demo-step span { width: 23px; height: 23px; display: grid; place-items: center; background: #e1f0ea; color: #337961; font-weight: 700; border-radius: 50%; font-size: 11px; }.demo-step b { display: block; color: #3a4b52; font-size: 12px; margin: 8px 0 4px; }.demo-step p { color: #7d8b90; font-size: 10px; line-height: 1.55; margin: 0; }
+      footer { border-top: 1px solid #e4ebe8; padding-top: 19px; margin-top: 29px; color: #87959a; display: flex; justify-content: space-between; font-size: 10px; }
+      @media (max-width: 760px) { .sheet { width: 100%; margin: 0; }.hero, main { padding-left: 22px; padding-right: 22px; }.hero { min-height: 220px; }.hero .tag { left: 22px; right: auto; bottom: 22px; }.lead, .assistant { grid-template-columns: 1fr; }.capability-grid { grid-template-columns: 1fr 1fr; }.focus { margin-left: -22px; margin-right: -22px; padding-left: 22px; padding-right: 22px; }.focus-grid, .demo-list { grid-template-columns: 1fr; }.flow { grid-template-columns: 1fr 1fr; }.flow-step:not(:last-child)::after { display: none; }.demo-step { padding: 12px 0; border-right: 0; border-bottom: 1px solid #e1e9e5; }.questions { grid-template-columns: 1fr; } }
+      @media print { body { background: white; }.sheet { width: 100%; margin: 0; box-shadow: none; } }
+    </style>
+  </head>
+  <body>
+    <article class="sheet">
+      <header class="hero">
+        <div class="brand"><span class="brand-logo-wrap"><img class="brand-logo" src="./assets/epac-logo.png" alt="EPAC 易帕包装" /></span><strong>EPAC 易帕包装</strong><span>· Vietnam Factory</span></div>
+        <h1>智能工作台<br />一页使用说明</h1>
+        <p>把销售、采购、订单、回款、行政和审批放在一个工作界面里。</p>
+        <div class="tag"><i></i> 本地离线演示版</div>
+      </header>
+
+      <main>
+        <section class="lead">
+          <div>
+            <p class="eyebrow">ONE WORKBENCH · ONE VIEW</p>
+            <h2>它不是一个聊天工具，而是工厂的经营与协同中枢。</h2>
+            <p>老板用它看经营和风险，部门负责人用它推动问题，员工用它完成每天的客户、采购和行政待办。每个人只看自己需要处理的内容。</p>
+          </div>
+          <div class="outcome">
+            <strong>一句话价值</strong>
+            <span>少找 Excel，少问微信，少等口头反馈。订单、报价、采购和回款出现问题时，系统直接指出问题、责任人和下一步动作。</span>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title"><h2>七个核心能力</h2><span>老板、总经理、部门负责人、员工按角色使用</span></div>
+          <div class="capability-grid">
+            <div class="capability"><span class="icon owner">01</span><h3>老板经营看板</h3><p>一眼看订单金额、回款率、毛利、逾期应收、重点客户和部门执行情况。</p></div>
+            <div class="capability"><span class="icon sales">02</span><h3>销售跟进与回款</h3><p>管理询盘、打样、报价、订单和回款；自动提示报价 3 天未跟进、客户回款逾期。</p></div>
+            <div class="capability"><span class="icon order">03</span><h3>订单生产协同</h3><p>追踪待排产、待原料、生产中、待发货；发现可能延期的订单和具体原因。</p></div>
+            <div class="capability"><span class="icon buy">04</span><h3>采购比价与交期</h3><p>比较供应商价格、历史涨跌、交期和评分；识别原料涨价和采购催交事项。</p></div>
+            <div class="capability"><span class="icon admin">05</span><h3>行政资料与会议管理</h3><p>统一处理请假、用印、招聘和入离职；文件自动归档，会议录音可生成纪要、待办和责任人。</p></div>
+            <div class="capability"><span class="icon ai">06</span><h3>审批、预警与智能问答</h3><p>集中审批高风险事项；用自然语言问订单、报价和采购问题，直接得到建议。</p></div>
+          </div>
+        </section>
+
+        <section class="focus">
+          <h2>老板今天只需先盯三件事</h2>
+          <div class="focus-grid">
+            <div class="focus-item"><b>先保交期</b><strong>订单原料没有到</strong><p>系统显示受影响订单、缺什么原料、哪个采购员负责，以及预计会晚几天。</p></div>
+            <div class="focus-item"><b>再抓回款</b><strong>客户付款已经逾期</strong><p>系统显示逾期客户、金额、天数和销售负责人，避免应收款长期没人推动。</p></div>
+            <div class="focus-item"><b>推进新机会</b><strong>报价发出后没有跟进</strong><p>系统找出报价超过 3 天没有动作的客户，提醒销售及时推进成交。</p></div>
+          </div>
+        </section>
+
+        <section>
+          <div class="flow-title"><h2>销售订单从客户到回款，所有关键节点都可追踪</h2><p>系统重点盯住“报价后跟进”和“下单后进入排产”两个最容易卡住的位置。</p></div>
+          <div class="flow">
+            <div class="flow-step"><b>客户询盘</b><span>记录需求</span></div>
+            <div class="flow-step"><b>打样</b><span>确认样品</span></div>
+            <div class="flow-step risk"><b>报价</b><span>3 天未跟进预警</span></div>
+            <div class="flow-step"><b>客户确认</b><span>转为订单</span></div>
+            <div class="flow-step risk"><b>排产 / 交付</b><span>原料与交期风险</span></div>
+            <div class="flow-step"><b>回款</b><span>逾期自动提醒</span></div>
+          </div>
+        </section>
+
+        <section class="assistant">
+          <div><p class="eyebrow">EPAC INTELLIGENCE</p><h2>不用翻表格，直接问智能助手。</h2><p>当前演示版使用模拟数据和预设规则。正式版可连接真实 Excel、ERP、订单、采购和财务数据。</p></div>
+          <div class="questions">
+            <div>“哪些订单有交期风险？”</div>
+            <div>“哪些报价超过 3 天未跟进？”</div>
+            <div>“比较铝箔供应商报价和交期。”</div>
+            <div>“本周最需要处理什么？”</div>
+            <div>“上次安全培训会议的待办有哪些？”</div>
+          </div>
+        </section>
+
+        <section class="demo">
+          <h2>给老板演示时，按四步看完</h2>
+          <div class="demo-list">
+            <div class="demo-step"><span>1</span><b>先看经营总览</b><p>订单、回款、毛利、应收和经营风险。</p></div>
+            <div class="demo-step"><span>2</span><b>再看交期风险</b><p>进入订单生产协同，找到卡住的订单。</p></div>
+            <div class="demo-step"><span>3</span><b>看采购和销售动作</b><p>展示供应商比价、催交、报价跟进与催款。</p></div>
+            <div class="demo-step"><span>4</span><b>最后问智能助手</b><p>用一句话快速得到风险摘要和建议动作。</p></div>
+          </div>
+        </section>
+
+        <footer><span>EPAC 易帕包装 · 智能工作台本地演示版</span><span>中文 · English · Tiếng Việt · 支持角色一键切换</span></footer>
+      </main>
+    </article>
+  </body>
+</html>
+
